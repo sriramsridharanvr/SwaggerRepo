@@ -1,0 +1,62 @@
+package org.sriram.assets.asset;
+
+import java.util.Date;
+import java.util.Random;
+
+public class Asset {
+	private int id;
+	private String name;
+	private String type;
+	private String owner;
+	private Date purchaseDate;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+	@Override
+	public String toString() {
+		return "Asset [id=" + id + ", name=" + name + ", type=" + type + ", owner=" + owner + ", purchaseDate="
+				+ purchaseDate + "]";
+	}
+	
+	public static Asset create(String name, String type, String owner) {
+		Asset a = new Asset();
+		a.setName(name);
+		a.setType(type);
+		a.setOwner(owner);
+		a.setPurchaseDate(new Date());
+		
+		Random random = new Random();
+		int oId = random.nextInt(9999) + 1;
+		a.setId(oId);
+		return a;
+	}
+	
+	
+}
